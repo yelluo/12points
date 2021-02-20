@@ -4,4 +4,11 @@
 
 ![image](http://yelluo.gz01.bdysite.com/public/img/12points.png)
 
-桃树工作室游戏介绍：http://yelluo.gz01.bdysite.com/
+桃树工作室游戏介绍：http://codfun.top  http://yelluo.gz01.bdysite.com/
+
+基于https://github.com/gbyuxia/wx-game-24 二次开发，增加或完善以下功能：
+1.增加6点、12点计算，适合更广泛的用户群体，包括从学龄前到成年人。
+2.设置四种游戏模式或难度：初级只包含加减法，中级包括加减乘法，高级包括加减乘除法，另外还有随机模式，不限定运算符号，而且生成的题目难度比较大。
+3.优化出题逻辑：保证不会重复出题，而且不会死循环。
+4.增加提示功能，给出当前题目的一种算法。
+5.优化其他用户体验。
