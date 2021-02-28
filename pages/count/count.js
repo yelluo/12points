@@ -20,6 +20,8 @@ Page({
       this.setData({ game: options.game,grade:options.grade,userInfo:options.user});
       if (options.game == '24点')
         this.setData({sum: 24, numT: 4 });
+      else if (options.game == '12点')
+        this.setData({ sum: 12, numT: 3 });
       else if (options.game == '6点')
         this.setData({ sum: 6, numT: 3 });
       this.creatUnit();
