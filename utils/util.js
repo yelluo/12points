@@ -173,53 +173,53 @@ function gameLevel2(arr) {
 
 //穷举计算 生成符合规则的新题
 function count(g){
-    let newArr = [],answer = [], str = [createRandomNum(),createRandomNum(),createRandomNum(),createRandomNum()], countStr = arrayList(str.sort()),resultArr = [];
+    let newArr = [],answer = [], str = [createRandomNum(),createRandomNum(),createRandomNum(),createRandomNum()];
+    // str = [5, 5, 4, 4];
+    let countStr = arrayList(str.sort()),resultArr = [];
 
     for(var i =0; i<countStr.length ; i++){
         var x=countStr[i].a;
         var y=countStr[i].b;
         var z=countStr[i].c;
         var w=countStr[i].d;
+        // console.log(x,y,z,w);
         if (x+y+z+w==24){ var aResult = x+"+"+y+"+"+z+"+"+w;resultArr.push(aResult);}
-        else if (x+y+z-w==24){ var aResult = x+"+"+y+"+"+z+"-"+w;resultArr.push(aResult);}
-        else if ((x+y)*(z+w)==24){ var aResult = "("+x+"+"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        else if ((x-y)*(z+w)==24){ var aResult = "("+x+"-"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        else if ((x-y)*(z-w)==24){ var aResult = "("+x+"-"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
-        else if ((x+y+z)*w==24){ var aResult = "("+x+"+"+y+"+"+z+")*"+w;resultArr.push(aResult);}
-        else if ((x-y-z)*w==24){ var aResult = "("+x+"-"+y+"-"+z+")*"+w;resultArr.push(aResult);}
-        else if ((x+y-z)*w==24){ var aResult = "("+x+"+"+y+"-"+z+")*"+w;resultArr.push(aResult);}
-        else if ((x*y*z)/w==24){ var aResult = "("+x+"*"+y+"*"+z+")/"+w;resultArr.push(aResult);}
-        else if (x*y*(z+w)==24){ var aResult = "("+x+"*"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        else if (x*y*(z-w)==24){ var aResult = "("+x+"*"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
-        else if (x*y*z-w==24){ var aResult = "("+x+"*"+y+")*("+z+")-"+w;resultArr.push(aResult);}
-        else if (x*y*z+w==24){ var aResult = "("+x+"*"+y+")*("+z+")+"+w;resultArr.push(aResult);}
-        else if (x*y*z*w==24){ var aResult = x+"*"+y+"*"+z+"*"+w;resultArr.push(aResult);}
-        else if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+("+z+"/"+w+")";resultArr.push(aResult);}
-        else if ((x+y)*(z/w)==24){ var aResult = "("+x+"+"+y+")*("+z+"/"+w+")";resultArr.push(aResult);}
-        else if (x*y+z+w==24){ var aResult = "("+x+"*"+y+")+"+z+"+"+w;resultArr.push(aResult);}
-        else if (x*y+z-w==24){ var aResult = "("+x+"*"+y+")+"+z+"-"+w;resultArr.push(aResult);}
-        else if (x*y-(z/w)==24){ var aResult = "("+x+"*"+y+")-("+z+"/"+w+")";resultArr.push(aResult);}
-        else if (x*y+(z/w)==24){ var aResult = "("+x+"*"+y+")-("+z+"/"+w+")";resultArr.push(aResult);}
-        else if (x*y-z-w==24){ var aResult = "("+x+"*"+y+")-"+z+"-"+w;resultArr.push(aResult);}
-        else if (x*y+(z*w)==24){ var aResult = "("+x+"*"+y+")+("+z+"*"+w+")";resultArr.push(aResult);}
-        else if (x*y-(z*w)==24){ var aResult = "("+x+"*"+y+")-("+z+"*"+w+")";resultArr.push(aResult);}
-        else if (x*y/(z*w)==24){ var aResult = "("+x+"*"+y+")/("+z+"*"+w+")";resultArr.push(aResult);}
-        else if (x*y/(z-w)==24){ var aResult = "("+x+"*"+y+")/("+z+"-"+w+")";resultArr.push(aResult);}
-        else if (x*y/(z+w)==24){ var aResult = "("+x+"*"+y+")/("+z+"+"+w+")";resultArr.push(aResult);}        
+        if (x+y+z-w==24){ var aResult = x+"+"+y+"+"+z+"-"+w;resultArr.push(aResult);}
+        if ((x+y)*(z+w)==24){ var aResult = "("+x+"+"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
+        if ((x-y)*(z+w)==24){ var aResult = "("+x+"-"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
+        if ((x-y)*(z-w)==24){ var aResult = "("+x+"-"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
+        if ((x+y+z)*w==24){ var aResult = "("+x+"+"+y+"+"+z+")*"+w;resultArr.push(aResult);}
+        if ((x-y-z)*w==24){ var aResult = "("+x+"-"+y+"-"+z+")*"+w;resultArr.push(aResult);}
+        if ((x+y-z)*w==24){ var aResult = "("+x+"+"+y+"-"+z+")*"+w;resultArr.push(aResult);}
+        if ((x*y*z)/w==24){ var aResult = "("+x+"*"+y+"*"+z+")/"+w;resultArr.push(aResult);}
+        if (x*y*(z+w)==24){ var aResult = "("+x+"*"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
+        if (x*y*(z-w)==24){ var aResult = "("+x+"*"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
+        if (x*y*z-w==24){ var aResult = "("+x+"*"+y+")*("+z+")-"+w;resultArr.push(aResult);}
+        if (x*y*z+w==24){ var aResult = "("+x+"*"+y+")*("+z+")+"+w;resultArr.push(aResult);}
+        if (x*y*z*w==24){ var aResult = x+"*"+y+"*"+z+"*"+w;resultArr.push(aResult);}
+        if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+("+z+"/"+w+")";resultArr.push(aResult);}
+        if ((x+y)*(z/w)==24){ var aResult = "("+x+"+"+y+")*("+z+"/"+w+")";resultArr.push(aResult);}
+        if (x*y+z+w==24){ var aResult = "("+x+"*"+y+")+"+z+"+"+w;resultArr.push(aResult);}
+        if (x*y+z-w==24){ var aResult = "("+x+"*"+y+")+"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y-(z/w)==24){ var aResult = "("+x+"*"+y+")-("+z+"/"+w+")";resultArr.push(aResult);}
+        if (x*y+(z/w)==24){ var aResult = "("+x+"*"+y+")-("+z+"/"+w+")";resultArr.push(aResult);}
+        if (x*y-z-w==24){ var aResult = "("+x+"*"+y+")-"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y+(z*w)==24){ var aResult = "("+x+"*"+y+")+("+z+"*"+w+")";resultArr.push(aResult);}
+        if (x*y-(z*w)==24){ var aResult = "("+x+"*"+y+")-("+z+"*"+w+")";resultArr.push(aResult);}
+        if (x*y/(z*w)==24){ var aResult = "("+x+"*"+y+")/("+z+"*"+w+")";resultArr.push(aResult);}
+        if (x*y/(z-w)==24){ var aResult = "("+x+"*"+y+")/("+z+"-"+w+")";resultArr.push(aResult);}
+        if (x*y/(z+w)==24){ var aResult = "("+x+"*"+y+")/("+z+"+"+w+")";resultArr.push(aResult);}        
     }
     answer = unique(resultArr);
     var level = gameLevel(answer), level4 = 0;
     if(g == '随机') {
       var rd = createRandomNum();
-      if (level == 3 )
-        level4 = 4;
-      else if (rd > 7 && level == 2)
-        level4 = 4;
-      else if (rd == 1 && level == 1)
+      if (answer.length < 3 && (level == 3 || (rd > 7 && level == 2) || (rd == 1 && level == 1)))
         level4 = 4;
     }
     //if ((g=='初级' && easyNums(str) >2  && answer.length>0) ||(g == '中级' && easyNums(str)==2 && answer.length>0) || (g == '高级' && easyNums(str)<=1 && answer.length>0) ){
-    if ((g == '初级' && level == 1 && answer.length > 0) || (g == '中级' && level == 2 && answer.length > 0) || (g == '高级' && level == 3 && answer.length > 0) || (g == '随机' && level4 == 4 && answer.length > 0)) {
+  if (answer.length > 0) {
+    if ((g == '初级' && level == 1) || (g == '中级' && level == 2) || (g == '高级' && level == 3) || (g == '随机' && level4 == 4)) {
         str.map(function(kk){
             newArr.push(String(kk));
         })
@@ -227,6 +227,7 @@ function count(g){
         // console.log(level);
         return {answer:answer,nums:newArr}
     }     
+  }
 }
 
 //老黄增加：12点或6点
@@ -239,49 +240,47 @@ function count2(g, sum, tryTimes) {
     var y = countStr[i].b;
     var z = countStr[i].c;
     if (x + y + z == sum) { var aResult = x + "+" + y + "+" + z; resultArr.push(aResult); }
-    else if ((x + y) * z == sum) { var aResult = "(" + x + "+" + y + ")*" + z; resultArr.push(aResult); }
-    else if ((x - y) * z == sum) { var aResult = "(" + x + "-" + y + ")*" + z; resultArr.push(aResult); }
-    else if (x - y - z == sum) { var aResult = x + "-" + y + "-" + z; resultArr.push(aResult); }
-    else if (x + y - z == sum) { var aResult = x + "+" + y + "-" + z; resultArr.push(aResult); }
-    else if (x * y * z == sum) { var aResult = x + "*" + y + "*" + z; resultArr.push(aResult); }
-    else if (x * y + z == sum) { var aResult = x + "*" + y + "+" + z; resultArr.push(aResult); }
-    else if (x * y - z == sum) { var aResult = x + "*" + y + "-" + z; resultArr.push(aResult); }
-    else if (z - x * y == sum) { var aResult = z + "-" + x + "*" + y; resultArr.push(aResult); }
-    else if (x * y / z == sum) { var aResult = x + "*" + y + "/" + z; resultArr.push(aResult); }
-    else if ((x + y) / z == sum) { var aResult = "(" + x + "+" + y + ")/" + z; resultArr.push(aResult); }
-    else if (x + y / z == sum) { var aResult = x + "+" + y + "/" + z; resultArr.push(aResult); }
-    else if (x - y / z == sum) { var aResult = x + "-" + y + "/" + z; resultArr.push(aResult); }
-    else if (y / z - x == sum) { var aResult = y + "/" + z + "-" + x; resultArr.push(aResult); }
-    else if (x / y / z == sum) { var aResult = x + "/" + y + "/" + z; resultArr.push(aResult); }
+    if ((x + y) * z == sum) { var aResult = "(" + x + "+" + y + ")*" + z; resultArr.push(aResult); }
+    if ((x - y) * z == sum) { var aResult = "(" + x + "-" + y + ")*" + z; resultArr.push(aResult); }
+    if (x - y - z == sum) { var aResult = x + "-" + y + "-" + z; resultArr.push(aResult); }
+    if (x + y - z == sum) { var aResult = x + "+" + y + "-" + z; resultArr.push(aResult); }
+    if (x * y * z == sum) { var aResult = x + "*" + y + "*" + z; resultArr.push(aResult); }
+    if (x * y + z == sum) { var aResult = x + "*" + y + "+" + z; resultArr.push(aResult); }
+    if (x * y - z == sum) { var aResult = x + "*" + y + "-" + z; resultArr.push(aResult); }
+    if (z - x * y == sum) { var aResult = z + "-" + x + "*" + y; resultArr.push(aResult); }
+    if (x * y / z == sum) { var aResult = x + "*" + y + "/" + z; resultArr.push(aResult); }
+    if ((x + y) / z == sum) { var aResult = "(" + x + "+" + y + ")/" + z; resultArr.push(aResult); }
+    if (x + y / z == sum) { var aResult = x + "+" + y + "/" + z; resultArr.push(aResult); }
+    if (x - y / z == sum) { var aResult = x + "-" + y + "/" + z; resultArr.push(aResult); }
+    if (y / z - x == sum) { var aResult = y + "/" + z + "-" + x; resultArr.push(aResult); }
+    if (x / y / z == sum) { var aResult = x + "/" + y + "/" + z; resultArr.push(aResult); }
   }
   answer = unique(resultArr);
   var level = 1;
   if (tryTimes < 10) {
     // console.log("gameLevel");
-    level = gameLevel2(answer);
+    level = gameLevel(answer);
   }
   else {
     // console.log("gameLevel2");
     level = gameLevel2(answer);
   }
-  var level = gameLevel(answer), level4 = 0;
+  var level4 = 0;
   if (g == '随机') {
     var rd = createRandomNum();
-    if (level == 3)
-      level4 = 4;
-    else if (rd > 8 && level == 2)
-      level4 = 4;
-    else if (rd == 1 && level == 1)
+    if (answer.length < 3 && (level == 3 || (rd > 8 && level == 2) || (rd == 1 && level == 1)))
       level4 = 4;
   }
   // if ((g == '初级' && easyNums(str) > 2 && answer.length > 0) || (g == '中级' && easyNums(str) == 2 && answer.length > 0) || (g == '高级' && easyNums(str) <= 1 && answer.length > 0)) {
-  if ((g == '初级' && level == 1 && answer.length > 0) || (g == '中级' && level == 2 && answer.length > 0) || (g == '高级' && level == 3 && answer.length > 0) || (g == '随机' && level4 == 4 &&answer.length > 0)) {
-    str.map(function (kk) {
-      newArr.push(String(kk));
-    })
-    // console.log(answer);
-    // console.log(level);
-    return { answer: answer, nums: newArr }
+  if (answer.length > 0) {  
+    if ((g == '初级' && level == 1) || (g == '中级' && level == 2) || (g == '高级' && level == 3) || (g == '随机' && level4 == 4)) {
+      str.map(function (kk) {
+        newArr.push(String(kk));
+      })
+      // console.log(answer);
+      // console.log(level);
+      return { answer: answer, nums: newArr }
+    }
   }
 }
 
