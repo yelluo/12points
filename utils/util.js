@@ -191,24 +191,73 @@ function count(g){
         if ((x+y+z)*w==24){ var aResult = "("+x+"+"+y+"+"+z+")*"+w;resultArr.push(aResult);}
         if ((x-y-z)*w==24){ var aResult = "("+x+"-"+y+"-"+z+")*"+w;resultArr.push(aResult);}
         if ((x+y-z)*w==24){ var aResult = "("+x+"+"+y+"-"+z+")*"+w;resultArr.push(aResult);}
-        if ((x*y*z)/w==24){ var aResult = "("+x+"*"+y+"*"+z+")/"+w;resultArr.push(aResult);}
-        if (x*y*(z+w)==24){ var aResult = "("+x+"*"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        if (x*y*(z-w)==24){ var aResult = "("+x+"*"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
-        if (x*y*z-w==24){ var aResult = "("+x+"*"+y+")*("+z+")-"+w;resultArr.push(aResult);}
-        if (x*y*z+w==24){ var aResult = "("+x+"*"+y+")*("+z+")+"+w;resultArr.push(aResult);}
+        if ((x*y*z)/w==24){ 
+          if (x % w == 0)
+            var aResult = x+"/"+w+"*"+y+"*"+z;
+          else if (y % w == 0)
+            var aResult = y+"/"+w+"*"+x+"*"+z;
+          else if (z % w == 0)
+            var aResult = z+"/"+w+"*"+x+"*"+y;
+          else if ((x * y) % w == 0)
+            var aResult = x+"*"+y+"/"+w+"*"+z;
+          else if ((x * z) % w == 0)
+            var aResult = x+"*"+z+"/"+w+"*"+y;
+          else if ((y * z) % w == 0)
+            var aResult = y+"*"+z+"/"+w+"*"+x;
+          else
+            var aResult = x+"*"+y+"*"+z+"/"+w;
+          resultArr.push(aResult);}
+        if (x*y*(z+w)==24){ var aResult = x+"*"+y+"*("+z+"+"+w+")";resultArr.push(aResult);}
+        if (x*y*(z-w)==24){ var aResult = x+"*"+y+"*("+z+"-"+w+")";resultArr.push(aResult);}
+        if (x*y*z-w==24){ var aResult = x+"*"+y+"*"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y*z+w==24){ var aResult = x+"*"+y+"*"+z+"+"+w;resultArr.push(aResult);}
         if (x*y*z*w==24){ var aResult = x+"*"+y+"*"+z+"*"+w;resultArr.push(aResult);}
-        if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+("+z+"/"+w+")";resultArr.push(aResult);}
-        if ((x+y)*(z/w)==24){ var aResult = "("+x+"+"+y+")*("+z+"/"+w+")";resultArr.push(aResult);}
-        if (x*y+z+w==24){ var aResult = "("+x+"*"+y+")+"+z+"+"+w;resultArr.push(aResult);}
-        if (x*y+z-w==24){ var aResult = "("+x+"*"+y+")+"+z+"-"+w;resultArr.push(aResult);}
-        if (x*y-(z/w)==24){ var aResult = "("+x+"*"+y+")-("+z+"/"+w+")";resultArr.push(aResult);}
-        if (x*y+(z/w)==24){ var aResult = "("+x+"*"+y+")+("+z+"/"+w+")";resultArr.push(aResult);}
-        if (x*y-z-w==24){ var aResult = "("+x+"*"+y+")-"+z+"-"+w;resultArr.push(aResult);}
-        if (x*y+(z*w)==24){ var aResult = "("+x+"*"+y+")+("+z+"*"+w+")";resultArr.push(aResult);}
-        if (x*y-(z*w)==24){ var aResult = "("+x+"*"+y+")-("+z+"*"+w+")";resultArr.push(aResult);}
-        if (x*y/(z*w)==24){ var aResult = "("+x+"*"+y+")/("+z+"*"+w+")";resultArr.push(aResult);}
-        if (x*y/(z-w)==24){ var aResult = "("+x+"*"+y+")/("+z+"-"+w+")";resultArr.push(aResult);}
-        if (x*y/(z+w)==24){ var aResult = "("+x+"*"+y+")/("+z+"+"+w+")";resultArr.push(aResult);}        
+        if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+"+z+"/"+w;resultArr.push(aResult);}
+        if ((x+y)*(z/w)==24){ 
+          if ((x+y) % w == 0)
+            var aResult = "("+x+"+"+y+")/"+w+"*"+z;
+          else if (z % w == 0)
+            var aResult = z +"/" + w + "*("+x+"+"+y+")";
+          else
+            var aResult = "("+x+"+"+y+")*"+z+"/"+w;
+          resultArr.push(aResult);}
+        if (x*y+z+w==24){ var aResult = x+"*"+y+"+"+z+"+"+w;resultArr.push(aResult);}
+        if (x*y+z-w==24){ var aResult = x+"*"+y+"+"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y-(z/w)==24){ var aResult = x+"*"+y+"-"+z+"/"+w;resultArr.push(aResult);}
+        if (x*y+(z/w)==24){ var aResult = x+"*"+y+"+"+z+"/"+w;resultArr.push(aResult);}
+        if (x*y-z-w==24){ var aResult = x+"*"+y+"-"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y+(z*w)==24){ var aResult = x+"*"+y+"+"+z+"*"+w;resultArr.push(aResult);}
+        if (x*y-(z*w)==24){ var aResult = x+"*"+y+"-"+z+"*"+w;resultArr.push(aResult);}
+        if (x*y/z/w==24){ 
+          if (x % z == 0)
+            var aResult = x+"/"+z+"*"+y+"/"+w;
+          else if (y % z == 0)
+            var aResult = y+"/"+z+"*"+x+"/"+w;
+          else if (x % w == 0)
+            var aResult = x+"/"+w+"*"+y+"/"+z;
+          else if (y % w == 0)
+            var aResult = y+"/"+w+"*"+x+"/"+z;
+          else if ((x*y) % w == 0)
+            var aResult = x+"*"+y+"/"+w+"/"+z;
+          else
+            var aResult = x+"*"+y+"/"+z+"/"+w;
+          resultArr.push(aResult);}
+        if (x*y/(z-w)==24){ 
+          if (x % (z-w) == 0)
+            var aResult = x+"/("+z+"-"+w+")"+"*"+y;
+          else if (y % (z-w) == 0)
+            var aResult = y+"/("+z+"-"+w+")"+"*"+x;
+          else
+            var aResult = x+"*"+y+"/("+z+"-"+w+")";
+          resultArr.push(aResult);}
+        if (x*y/(z+w)==24){
+          if (x % (z+w) == 0)
+            var aResult = x+"/("+z+"+"+w+")"+"*"+y;
+          else if (y % (z+w) == 0)
+            var aResult = y+"/("+z+"+"+w+")"+"*"+x;
+          else
+            var aResult = x+"*"+y+"/("+z+"+"+w+")";
+          resultArr.push(aResult);}        
     }
     answer = unique(resultArr);
     var level = gameLevel(answer), level4 = 0;
@@ -248,7 +297,14 @@ function count2(g, sum, tryTimes) {
     if (x * y + z == sum) { var aResult = x + "*" + y + "+" + z; resultArr.push(aResult); }
     if (x * y - z == sum) { var aResult = x + "*" + y + "-" + z; resultArr.push(aResult); }
     if (z - x * y == sum) { var aResult = z + "-" + x + "*" + y; resultArr.push(aResult); }
-    if (x * y / z == sum) { var aResult = x + "*" + y + "/" + z; resultArr.push(aResult); }
+    if (x * y / z == sum) { 
+      if (x % z == 0)
+        var aResult = x + "/" + z + "*" + y;
+      else if (y % z == 0)
+        var aResult = y + "/" + z + "*" + x;
+      else
+        var aResult = x + "*" + y + "/" + z; 
+      resultArr.push(aResult); }
     if ((x + y) / z == sum) { var aResult = "(" + x + "+" + y + ")/" + z; resultArr.push(aResult); }
     if (x + y / z == sum) { var aResult = x + "+" + y + "/" + z; resultArr.push(aResult); }
     if (x - y / z == sum) { var aResult = x + "-" + y + "/" + z; resultArr.push(aResult); }
