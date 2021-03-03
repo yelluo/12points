@@ -257,7 +257,16 @@ function count(g){
             var aResult = y+"÷("+z+"+"+w+")"+"x"+x;
           else
             var aResult = x+"x"+y+"÷("+z+"+"+w+")";
-          resultArr.push(aResult);}        
+          resultArr.push(aResult);}
+        if (Math.abs(24 - x/(y-z/w)) < 1e-10){ 
+          var aResult = x+"÷("+y+"-"+z+"÷"+w+")";
+          resultArr.push(aResult);}
+        if (Math.abs(24 - x/(z/w-y)) < 1e-10){ 
+          var aResult = x+"÷("+z+"÷"+w+"-"+y+")";
+          resultArr.push(aResult);}
+        if (Math.abs(24 - x/(y+z/w)) < 1e-10){ 
+          var aResult = x+"÷("+y+"+"+z+"÷"+w+")";
+          resultArr.push(aResult);}
     }
     answer = unique(resultArr);
     var level = gameLevel(answer), level4 = 0;
