@@ -143,12 +143,12 @@ function easyNums(arr){
 //初级：至少一种解法不含乘除；中级：每种解法都含有乘法；高级：每种解法都含有除法
 function gameLevel(arr) {
   for (let k in arr) {    
-    if (arr[k].indexOf("/") == -1 && arr[k].indexOf("*") == -1) {
+    if (arr[k].indexOf("÷") == -1 && arr[k].indexOf("x") == -1) {
       return 1;
     }
   }
   for (let k in arr) {
-    if (arr[k].indexOf("/") == -1) {
+    if (arr[k].indexOf("÷") == -1) {
       return 2;
     }
   }  
@@ -159,12 +159,12 @@ function gameLevel(arr) {
 //初级：不含乘除；中级：至少一种解法含有乘法；高级：至少一种解法含有除法
 function gameLevel2(arr) {
   for (let k in arr) {
-    if (arr[k].indexOf("/") != -1) {
+    if (arr[k].indexOf("÷") != -1) {
       return 3;
     }
   }
   for (let k in arr) {
-    if (arr[k].indexOf("*") != -1) {
+    if (arr[k].indexOf("x") != -1) {
       return 2;
     }
   }
@@ -185,78 +185,78 @@ function count(g){
         // console.log(x,y,z,w);
         if (x+y+z+w==24){ var aResult = x+"+"+y+"+"+z+"+"+w;resultArr.push(aResult);}
         if (x+y+z-w==24){ var aResult = x+"+"+y+"+"+z+"-"+w;resultArr.push(aResult);}
-        if ((x+y)*(z+w)==24){ var aResult = "("+x+"+"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        if ((x-y)*(z+w)==24){ var aResult = "("+x+"-"+y+")*("+z+"+"+w+")";resultArr.push(aResult);}
-        if ((x-y)*(z-w)==24){ var aResult = "("+x+"-"+y+")*("+z+"-"+w+")";resultArr.push(aResult);}
-        if ((x+y+z)*w==24){ var aResult = "("+x+"+"+y+"+"+z+")*"+w;resultArr.push(aResult);}
-        if ((x-y-z)*w==24){ var aResult = "("+x+"-"+y+"-"+z+")*"+w;resultArr.push(aResult);}
-        if ((x+y-z)*w==24){ var aResult = "("+x+"+"+y+"-"+z+")*"+w;resultArr.push(aResult);}
+        if ((x+y)*(z+w)==24){ var aResult = "("+x+"+"+y+")x("+z+"+"+w+")";resultArr.push(aResult);}
+        if ((x-y)*(z+w)==24){ var aResult = "("+x+"-"+y+")x("+z+"+"+w+")";resultArr.push(aResult);}
+        if ((x-y)*(z-w)==24){ var aResult = "("+x+"-"+y+")x("+z+"-"+w+")";resultArr.push(aResult);}
+        if ((x+y+z)*w==24){ var aResult = "("+x+"+"+y+"+"+z+")x"+w;resultArr.push(aResult);}
+        if ((x-y-z)*w==24){ var aResult = "("+x+"-"+y+"-"+z+")x"+w;resultArr.push(aResult);}
+        if ((x+y-z)*w==24){ var aResult = "("+x+"+"+y+"-"+z+")x"+w;resultArr.push(aResult);}
         if ((x*y*z)/w==24){ 
           if (x % w == 0)
-            var aResult = x+"/"+w+"*"+y+"*"+z;
+            var aResult = x+"÷"+w+"x"+y+"x"+z;
           else if (y % w == 0)
-            var aResult = y+"/"+w+"*"+x+"*"+z;
+            var aResult = y+"÷"+w+"x"+x+"x"+z;
           else if (z % w == 0)
-            var aResult = z+"/"+w+"*"+x+"*"+y;
+            var aResult = z+"÷"+w+"x"+x+"x"+y;
           else if ((x * y) % w == 0)
-            var aResult = x+"*"+y+"/"+w+"*"+z;
+            var aResult = x+"x"+y+"÷"+w+"x"+z;
           else if ((x * z) % w == 0)
-            var aResult = x+"*"+z+"/"+w+"*"+y;
+            var aResult = x+"x"+z+"÷"+w+"x"+y;
           else if ((y * z) % w == 0)
-            var aResult = y+"*"+z+"/"+w+"*"+x;
+            var aResult = y+"x"+z+"÷"+w+"x"+x;
           else
-            var aResult = x+"*"+y+"*"+z+"/"+w;
+            var aResult = x+"x"+y+"x"+z+"÷"+w;
           resultArr.push(aResult);}
-        if (x*y*(z+w)==24){ var aResult = x+"*"+y+"*("+z+"+"+w+")";resultArr.push(aResult);}
-        if (x*y*(z-w)==24){ var aResult = x+"*"+y+"*("+z+"-"+w+")";resultArr.push(aResult);}
-        if (x*y*z-w==24){ var aResult = x+"*"+y+"*"+z+"-"+w;resultArr.push(aResult);}
-        if (x*y*z+w==24){ var aResult = x+"*"+y+"*"+z+"+"+w;resultArr.push(aResult);}
-        if (x*y*z*w==24){ var aResult = x+"*"+y+"*"+z+"*"+w;resultArr.push(aResult);}
-        if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+"+z+"/"+w;resultArr.push(aResult);}
+        if (x*y*(z+w)==24){ var aResult = x+"x"+y+"x("+z+"+"+w+")";resultArr.push(aResult);}
+        if (x*y*(z-w)==24){ var aResult = x+"x"+y+"x("+z+"-"+w+")";resultArr.push(aResult);}
+        if (x*y*z-w==24){ var aResult = x+"x"+y+"x"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y*z+w==24){ var aResult = x+"x"+y+"x"+z+"+"+w;resultArr.push(aResult);}
+        if (x*y*z*w==24){ var aResult = x+"x"+y+"x"+z+"x"+w;resultArr.push(aResult);}
+        if ((x+y)+(z/w)==24){ var aResult = "("+x+"+"+y+")+"+z+"÷"+w;resultArr.push(aResult);}
         if ((x+y)*(z/w)==24){ 
           if ((x+y) % w == 0)
-            var aResult = "("+x+"+"+y+")/"+w+"*"+z;
+            var aResult = "("+x+"+"+y+")÷"+w+"x"+z;
           else if (z % w == 0)
-            var aResult = z +"/" + w + "*("+x+"+"+y+")";
+            var aResult = z +"÷" + w + "x("+x+"+"+y+")";
           else
-            var aResult = "("+x+"+"+y+")*"+z+"/"+w;
+            var aResult = "("+x+"+"+y+")x"+z+"÷"+w;
           resultArr.push(aResult);}
-        if (x*y+z+w==24){ var aResult = x+"*"+y+"+"+z+"+"+w;resultArr.push(aResult);}
-        if (x*y+z-w==24){ var aResult = x+"*"+y+"+"+z+"-"+w;resultArr.push(aResult);}
-        if (x*y-(z/w)==24){ var aResult = x+"*"+y+"-"+z+"/"+w;resultArr.push(aResult);}
-        if (x*y+(z/w)==24){ var aResult = x+"*"+y+"+"+z+"/"+w;resultArr.push(aResult);}
-        if (x*y-z-w==24){ var aResult = x+"*"+y+"-"+z+"-"+w;resultArr.push(aResult);}
-        if (x*y+(z*w)==24){ var aResult = x+"*"+y+"+"+z+"*"+w;resultArr.push(aResult);}
-        if (x*y-(z*w)==24){ var aResult = x+"*"+y+"-"+z+"*"+w;resultArr.push(aResult);}
+        if (x*y+z+w==24){ var aResult = x+"x"+y+"+"+z+"+"+w;resultArr.push(aResult);}
+        if (x*y+z-w==24){ var aResult = x+"x"+y+"+"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y-(z/w)==24){ var aResult = x+"x"+y+"-"+z+"÷"+w;resultArr.push(aResult);}
+        if (x*y+(z/w)==24){ var aResult = x+"x"+y+"+"+z+"÷"+w;resultArr.push(aResult);}
+        if (x*y-z-w==24){ var aResult = x+"x"+y+"-"+z+"-"+w;resultArr.push(aResult);}
+        if (x*y+(z*w)==24){ var aResult = x+"x"+y+"+"+z+"x"+w;resultArr.push(aResult);}
+        if (x*y-(z*w)==24){ var aResult = x+"x"+y+"-"+z+"x"+w;resultArr.push(aResult);}
         if (x*y/z/w==24){ 
           if (x % z == 0)
-            var aResult = x+"/"+z+"*"+y+"/"+w;
+            var aResult = x+"÷"+z+"x"+y+"÷"+w;
           else if (y % z == 0)
-            var aResult = y+"/"+z+"*"+x+"/"+w;
+            var aResult = y+"÷"+z+"x"+x+"÷"+w;
           else if (x % w == 0)
-            var aResult = x+"/"+w+"*"+y+"/"+z;
+            var aResult = x+"÷"+w+"x"+y+"÷"+z;
           else if (y % w == 0)
-            var aResult = y+"/"+w+"*"+x+"/"+z;
+            var aResult = y+"÷"+w+"x"+x+"÷"+z;
           else if ((x*y) % w == 0)
-            var aResult = x+"*"+y+"/"+w+"/"+z;
+            var aResult = x+"x"+y+"÷"+w+"÷"+z;
           else
-            var aResult = x+"*"+y+"/"+z+"/"+w;
+            var aResult = x+"x"+y+"÷"+z+"÷"+w;
           resultArr.push(aResult);}
         if (x*y/(z-w)==24){ 
           if (x % (z-w) == 0)
-            var aResult = x+"/("+z+"-"+w+")"+"*"+y;
+            var aResult = x+"÷("+z+"-"+w+")"+"x"+y;
           else if (y % (z-w) == 0)
-            var aResult = y+"/("+z+"-"+w+")"+"*"+x;
+            var aResult = y+"÷("+z+"-"+w+")"+"x"+x;
           else
-            var aResult = x+"*"+y+"/("+z+"-"+w+")";
+            var aResult = x+"x"+y+"÷("+z+"-"+w+")";
           resultArr.push(aResult);}
         if (x*y/(z+w)==24){
           if (x % (z+w) == 0)
-            var aResult = x+"/("+z+"+"+w+")"+"*"+y;
+            var aResult = x+"÷("+z+"+"+w+")"+"x"+y;
           else if (y % (z+w) == 0)
-            var aResult = y+"/("+z+"+"+w+")"+"*"+x;
+            var aResult = y+"÷("+z+"+"+w+")"+"x"+x;
           else
-            var aResult = x+"*"+y+"/("+z+"+"+w+")";
+            var aResult = x+"x"+y+"÷("+z+"+"+w+")";
           resultArr.push(aResult);}        
     }
     answer = unique(resultArr);
@@ -289,27 +289,27 @@ function count2(g, sum, tryTimes) {
     var y = countStr[i].b;
     var z = countStr[i].c;
     if (x + y + z == sum) { var aResult = x + "+" + y + "+" + z; resultArr.push(aResult); }
-    if ((x + y) * z == sum) { var aResult = "(" + x + "+" + y + ")*" + z; resultArr.push(aResult); }
-    if ((x - y) * z == sum) { var aResult = "(" + x + "-" + y + ")*" + z; resultArr.push(aResult); }
+    if ((x + y) * z == sum) { var aResult = "(" + x + "+" + y + ")x" + z; resultArr.push(aResult); }
+    if ((x - y) * z == sum) { var aResult = "(" + x + "-" + y + ")x" + z; resultArr.push(aResult); }
     if (x - y - z == sum) { var aResult = x + "-" + y + "-" + z; resultArr.push(aResult); }
     if (x + y - z == sum) { var aResult = x + "+" + y + "-" + z; resultArr.push(aResult); }
-    if (x * y * z == sum) { var aResult = x + "*" + y + "*" + z; resultArr.push(aResult); }
-    if (x * y + z == sum) { var aResult = x + "*" + y + "+" + z; resultArr.push(aResult); }
-    if (x * y - z == sum) { var aResult = x + "*" + y + "-" + z; resultArr.push(aResult); }
-    if (z - x * y == sum) { var aResult = z + "-" + x + "*" + y; resultArr.push(aResult); }
+    if (x * y * z == sum) { var aResult = x + "x" + y + "x" + z; resultArr.push(aResult); }
+    if (x * y + z == sum) { var aResult = x + "x" + y + "+" + z; resultArr.push(aResult); }
+    if (x * y - z == sum) { var aResult = x + "x" + y + "-" + z; resultArr.push(aResult); }
+    if (z - x * y == sum) { var aResult = z + "-" + x + "x" + y; resultArr.push(aResult); }
     if (x * y / z == sum) { 
       if (x % z == 0)
-        var aResult = x + "/" + z + "*" + y;
+        var aResult = x + "÷" + z + "x" + y;
       else if (y % z == 0)
-        var aResult = y + "/" + z + "*" + x;
+        var aResult = y + "÷" + z + "x" + x;
       else
-        var aResult = x + "*" + y + "/" + z; 
+        var aResult = x + "x" + y + "÷" + z; 
       resultArr.push(aResult); }
-    if ((x + y) / z == sum) { var aResult = "(" + x + "+" + y + ")/" + z; resultArr.push(aResult); }
-    if (x + y / z == sum) { var aResult = x + "+" + y + "/" + z; resultArr.push(aResult); }
-    if (x - y / z == sum) { var aResult = x + "-" + y + "/" + z; resultArr.push(aResult); }
-    if (y / z - x == sum) { var aResult = y + "/" + z + "-" + x; resultArr.push(aResult); }
-    if (x / y / z == sum) { var aResult = x + "/" + y + "/" + z; resultArr.push(aResult); }
+    if ((x + y) / z == sum) { var aResult = "(" + x + "+" + y + ")÷" + z; resultArr.push(aResult); }
+    if (x + y / z == sum) { var aResult = x + "+" + y + "÷" + z; resultArr.push(aResult); }
+    if (x - y / z == sum) { var aResult = x + "-" + y + "÷" + z; resultArr.push(aResult); }
+    if (y / z - x == sum) { var aResult = y + "÷" + z + "-" + x; resultArr.push(aResult); }
+    if (x / y / z == sum) { var aResult = x + "÷" + y + "÷" + z; resultArr.push(aResult); }
   }
   answer = unique(resultArr);
   var level = 1;
