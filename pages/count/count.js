@@ -88,10 +88,9 @@ Page({
         let thisLine = this.data.countLine[line];
 
         this.setData({
-          last_countLine: this.data.countLine,
+          last_countLine: JSON.parse(JSON.stringify(this.data.countLine)),
           last_disabled: this.data.disabled
         });
-        // console.log(this.data);
 
         if (index < this.data.numT) {
           num = this.data.numbers[index];
@@ -151,8 +150,12 @@ Page({
                     useTimeTxt +=parseInt(useTime/60) + '分'+ (useTime % 60) +'秒'
                 }else{
                     useTimeTxt = useTime +'秒';
-                }          
-                if (Number(r) == this.data.sum){                   
+                } 
+      
+                // if (Number(r) == this.data.sum){
+                if (Math.abs(this.data.sum - Number(r)) < 1e-10) {
+                     // console.log('equal');
+                     r = this.data.sum;                  
                      let thisGradeNum = 1,thisScore=0;
                      if (oldData.grade == '中级'){
                          thisGradeNum = 2;
@@ -162,7 +165,6 @@ Page({
                        thisGradeNum = 4;
                      }
                      thisScore = thisGradeNum * Math.max(1,Math.ceil(2-(useTime-13)/6)) + oldData.total;
-                   
                                           
                        this.setData({total:oldData.total + thisScore}); 
                     
@@ -176,9 +178,10 @@ Page({
                             thisUnitTime:useTime,
                             total: thisScore
                         })                        
-                    
                 }else{
                     //结果错误
+                    // console.log('not equal');
+
                     this.setData({
                         countLine : newCountLine,
                         isFinished:true,
